@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Xelit3.Playground.Patterns.SAGA.Payment.Controllers
+namespace Xelit3.Playground.Patterns.SAGA.Payments.Controllers
 {
     [ApiController]
     [Route("[controller]")]

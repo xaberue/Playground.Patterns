@@ -2,13 +2,13 @@
 
 namespace Xelit3.Playground.Patterns.SAGA.Orchestrator.Scheduler;
 
-public class HangfireRenewJobScheduler : IHostedService
+public class BillingJobScheduler : IHostedService
 {
     private readonly IRecurringJobManager _recurringJobManager;
-    private readonly ILogger<HangfireRenewJobScheduler> _logger;
+    private readonly ILogger<BillingJobScheduler> _logger;
 
 
-    public HangfireRenewJobScheduler(IRecurringJobManager recurringJobManager, ILogger<HangfireRenewJobScheduler> logger)
+    public BillingJobScheduler(IRecurringJobManager recurringJobManager, ILogger<BillingJobScheduler> logger)
     {
         _recurringJobManager = recurringJobManager;
         _logger = logger;
@@ -18,8 +18,8 @@ public class HangfireRenewJobScheduler : IHostedService
     {
         _logger.LogInformation("Registering recurring Hangfire jobs...");
 
-        _recurringJobManager.AddOrUpdate<RenewJob>(
-            "renew-job",
+        _recurringJobManager.AddOrUpdate<BillingJob>(
+            "billing-job",
             job => job.ExecuteAsync(CancellationToken.None),
             Cron.MinuteInterval(1)
             //Cron.Daily(1)

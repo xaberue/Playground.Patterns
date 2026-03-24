@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using Xelit3.Playground.Patterns.SAGA.Discounts;
 
-namespace Xelit3.Playground.Patterns.SAGA.Discount.Controllers
+namespace Xelit3.Playground.Patterns.SAGA.Discounts.Controllers
 {
     [ApiController]
     [Route("[controller]")]

@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Xelit3.Playground.Patterns.SAGA.Plans.Infrastructure;
 using Xelit3.Playground.Patterns.SAGA.Plans.Models;
 
-namespace Xelit3.Playground.Patterns.SAGA.Plans.Modules.GetCurrentPlans;
+namespace Xelit3.Playground.Patterns.SAGA.Plans.Features.GetCurrentPlans;
 
 [ApiController]
 [Route("plans")]

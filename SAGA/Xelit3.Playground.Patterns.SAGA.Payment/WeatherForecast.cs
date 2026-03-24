@@ -1,4 +1,4 @@
-namespace Xelit3.Playground.Patterns.SAGA.Payment
+namespace Xelit3.Playground.Patterns.SAGA.Payments
 {
     public class WeatherForecast
     {
