@@ -1,0 +1,23 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.2.0">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net10.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<UserSecretsId>c1bf2ccc-dbc0-4e04-860c-219cbed00c11</UserSecretsId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Xelit3.Playground.Patterns.SAGA.Discount\Xelit3.Playground.Patterns.SAGA.Discounts.csproj" />
+		<ProjectReference Include="..\Xelit3.Playground.Patterns.SAGA.Orchestrator\Xelit3.Playground.Patterns.SAGA.Orchestrator.csproj" />
+		<ProjectReference Include="..\Xelit3.Playground.Patterns.SAGA.Payment\Xelit3.Playground.Patterns.SAGA.Payments.csproj" />
+		<ProjectReference Include="..\Xelit3.Playground.Patterns.SAGA.Plan\Xelit3.Playground.Patterns.SAGA.Plans.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Aspire.Hosting.RabbitMQ" Version="13.2.0" />
+	  <PackageReference Include="Aspire.Hosting.SqlServer" Version="13.2.0" />
+	</ItemGroup>
+
+</Project>

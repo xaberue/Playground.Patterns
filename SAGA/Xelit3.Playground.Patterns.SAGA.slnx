@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="Xelit3.Playground.Patterns.SAGA.AppHost/Xelit3.Playground.Patterns.SAGA.AppHost.csproj" />
+  <Project Path="Xelit3.Playground.Patterns.SAGA.Discount/Xelit3.Playground.Patterns.SAGA.Discounts.csproj" />
+  <Project Path="Xelit3.Playground.Patterns.SAGA.Orchestrator/Xelit3.Playground.Patterns.SAGA.Orchestrator.csproj" />
+  <Project Path="Xelit3.Playground.Patterns.SAGA.Payment/Xelit3.Playground.Patterns.SAGA.Payments.csproj" />
+  <Project Path="Xelit3.Playground.Patterns.SAGA.Plan/Xelit3.Playground.Patterns.SAGA.Plans.csproj" />
+  <Project Path="Xelit3.Playground.Patterns.SAGA.ServiceDefaults/Xelit3.Playground.Patterns.SAGA.ServiceDefaults.csproj" />
+</Solution>

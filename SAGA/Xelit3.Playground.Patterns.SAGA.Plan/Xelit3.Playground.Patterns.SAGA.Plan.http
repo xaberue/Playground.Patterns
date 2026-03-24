@@ -1,0 +1,6 @@
+@Plans_HostAddress = http://localhost:5058
+
+GET {{Plans_HostAddress}}/plans/today
+Accept: application/json
+
+###

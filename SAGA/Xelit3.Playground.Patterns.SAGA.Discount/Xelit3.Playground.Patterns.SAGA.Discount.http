@@ -1,0 +1,6 @@
+@Xelit3.Playground.Patterns.SAGA.Discount_HostAddress = http://localhost:5028
+
+GET {{Xelit3.Playground.Patterns.SAGA.Discount_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
