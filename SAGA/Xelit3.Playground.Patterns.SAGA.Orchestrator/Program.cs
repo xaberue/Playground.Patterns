@@ -1,6 +1,7 @@
 using Hangfire;
 using Wolverine;
 using Wolverine.RabbitMQ;
+using Xelit3.Playground.Patterns.SAGA.Contracts;
 using Xelit3.Playground.Patterns.SAGA.Orchestrator.Infrastructure;
 using Xelit3.Playground.Patterns.SAGA.Orchestrator.Scheduler;
 using Xelit3.Playground.Patterns.SAGA.ServiceDefaults;
@@ -14,12 +15,9 @@ builder.AddSqlServerClient(connectionName: "sqldb");
 
 builder.Host.UseWolverine(opts =>
 {
-    //opts.UseRabbitMq(builder.Configuration.GetConnectionString("rabbitmq")!);
     opts.UseRabbitMq(new Uri(builder.Configuration.GetConnectionString("rabbitmq")!)).AutoProvision();
 
-    opts.PublishMessage<BillingJobExecutionRequestEvent>().ToRabbitExchange("renew-job-execution-queue");
-
-    //opts.UseRabbitMqUsingNamedConnection("rabbitmq").AutoProvision();
+    opts.PublishMessage<BillingJobExecutionRequestEvent>().ToRabbitQueue("billingjob-execution-queue");
 });
 
 builder.Services.AddOpenApi();

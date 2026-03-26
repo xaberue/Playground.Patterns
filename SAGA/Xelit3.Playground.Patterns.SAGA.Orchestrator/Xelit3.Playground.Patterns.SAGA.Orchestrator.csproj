@@ -23,6 +23,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\Xelit3.Playground.Patterns.SAGA.Contracts\Xelit3.Playground.Patterns.SAGA.Contracts.csproj" />
 		<ProjectReference Include="..\Xelit3.Playground.Patterns.SAGA.ServiceDefaults\Xelit3.Playground.Patterns.SAGA.ServiceDefaults.csproj" />
 	</ItemGroup>
 

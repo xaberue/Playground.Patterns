@@ -15,7 +15,9 @@ builder.AddProject<Projects.Xelit3_Playground_Patterns_SAGA_Discounts>("discount
 
 builder.AddProject<Projects.Xelit3_Playground_Patterns_SAGA_Payments>("payments-api");
 
-builder.AddProject<Projects.Xelit3_Playground_Patterns_SAGA_Plans>("plans-api");
+builder.AddProject<Projects.Xelit3_Playground_Patterns_SAGA_Plans>("plans-api")
+    .WithReference(rabbitmq)
+    .WaitFor(rabbitmq);
 
 builder.AddProject<Projects.Xelit3_Playground_Patterns_SAGA_Orchestrator>("saga-orchestrator")
     .WithReference(sqlDb)

@@ -1,9 +1,20 @@
+using Wolverine;
+using Wolverine.RabbitMQ;
+using Xelit3.Playground.Patterns.SAGA.Contracts;
 using Xelit3.Playground.Patterns.SAGA.Plans.Infrastructure;
 using Xelit3.Playground.Patterns.SAGA.ServiceDefaults;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
+
+builder.Host.UseWolverine(opts =>
+{
+    opts.UseRabbitMq(new Uri(builder.Configuration.GetConnectionString("rabbitmq")!)).AutoProvision();
+
+    opts.ListenToRabbitQueue("billingjob-execution-queue");
+    opts.PublishMessage<PlanReadyForBillingEvent>().ToRabbitQueue("billing-plan-ready-queue");
+});
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();

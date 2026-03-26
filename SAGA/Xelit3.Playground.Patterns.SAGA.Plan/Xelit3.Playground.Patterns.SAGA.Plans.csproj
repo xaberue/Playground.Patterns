@@ -8,9 +8,12 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.5" />
+		<PackageReference Include="WolverineFx" Version="5.22.0" />
+		<PackageReference Include="WolverineFx.RabbitMQ" Version="5.22.0" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\Xelit3.Playground.Patterns.SAGA.Contracts\Xelit3.Playground.Patterns.SAGA.Contracts.csproj" />
 		<ProjectReference Include="..\Xelit3.Playground.Patterns.SAGA.ServiceDefaults\Xelit3.Playground.Patterns.SAGA.ServiceDefaults.csproj" />
 	</ItemGroup>
 
