@@ -4,15 +4,15 @@ using Xelit3.Playground.Patterns.SAGA.Plans.Infrastructure;
 
 namespace Xelit3.Playground.Patterns.SAGA.Plans.Features.GetCurrentPlans;
 
-public class GetTodayPlansHandler
+public class GetPlansHandler
 {
 
-    private readonly ILogger<GetTodayPlansHandler> _logger;
+    private readonly ILogger<GetPlansHandler> _logger;
     private readonly PlanRepository _planRepository;
     private readonly IMessageBus _bus;
 
 
-    public GetTodayPlansHandler(ILogger<GetTodayPlansHandler> logger, PlanRepository planRepository, IMessageBus bus)
+    public GetPlansHandler(ILogger<GetPlansHandler> logger, PlanRepository planRepository, IMessageBus bus)
     {
         _logger = logger;
         _planRepository = planRepository;
@@ -29,7 +29,7 @@ public class GetTodayPlansHandler
         foreach (var plan in plans)
         {
             _logger.LogInformation("Publishing PlanReadyForBillingEvent for plan {PlanId} on day {Day}", plan.Id, request.Day);
-            await _bus.PublishAsync(new PlanReadyForBillingEvent(plan.Id, plan.UserId));
+            await _bus.PublishAsync(new PlanReadyForBillingEvent(request.JobId, Guid.NewGuid(), plan.Id, plan.UserId));
         }
     }
 }

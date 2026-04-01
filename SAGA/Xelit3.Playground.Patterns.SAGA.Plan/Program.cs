@@ -12,8 +12,8 @@ builder.Host.UseWolverine(opts =>
 {
     opts.UseRabbitMq(new Uri(builder.Configuration.GetConnectionString("rabbitmq")!)).AutoProvision();
 
-    opts.ListenToRabbitQueue("billingjob-execution-queue");
-    opts.PublishMessage<PlanReadyForBillingEvent>().ToRabbitQueue("billing-plan-ready-queue");
+    opts.ListenToRabbitQueue("billingjob-execution-requested-queue");
+    opts.PublishMessage<PlanReadyForBillingEvent>().ToRabbitQueue("billingjob-plan-ready-queue");
 });
 
 builder.Services.AddControllers();

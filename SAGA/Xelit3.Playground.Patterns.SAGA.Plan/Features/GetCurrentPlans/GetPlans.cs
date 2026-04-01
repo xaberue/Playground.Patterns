@@ -6,13 +6,13 @@ namespace Xelit3.Playground.Patterns.SAGA.Plans.Features.GetCurrentPlans;
 
 [ApiController]
 [Route("plans")]
-public class GetTodayPlans : ControllerBase
+public class GetPlans : ControllerBase
 {
 
     private readonly PlanRepository _planRepository;
 
 
-    public GetTodayPlans(PlanRepository planRepository)
+    public GetPlans(PlanRepository planRepository)
     {
         _planRepository = planRepository;
     }
