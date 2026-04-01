@@ -17,7 +17,11 @@ builder.Host.UseWolverine(opts =>
 {
     opts.UseRabbitMq(new Uri(builder.Configuration.GetConnectionString("rabbitmq")!)).AutoProvision();
 
-    opts.PublishMessage<BillingJobExecutionRequestEvent>().ToRabbitQueue("billingjob-execution-queue");
+    opts.PublishMessage<BillingJobExecutionRequestEvent>().ToRabbitQueue("billingjob-execution-requested-queue");
+    opts.PublishMessage<DiscountRequestedForBillingEvent>().ToRabbitQueue("billingjob-discount-requested-queue");
+
+    opts.ListenToRabbitQueue("billingjob-plan-ready-queue");
+    opts.ListenToRabbitQueue("billingjob-discount-ready-queue");
 });
 
 builder.Services.AddOpenApi();

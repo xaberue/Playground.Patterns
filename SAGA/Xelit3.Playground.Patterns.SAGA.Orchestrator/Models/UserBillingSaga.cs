@@ -6,7 +6,7 @@ public class UserBillingSaga
 {
     public Guid Id { get; private set; }
 
-    public Guid BillingProcessId { get; private set; }
+    public Guid JobId { get; private set; }
     public Guid PlanId { get; private set; }
     public Guid UserId { get; private set; }
 
@@ -24,10 +24,10 @@ public class UserBillingSaga
 
     private UserBillingSaga() { }
 
-    public UserBillingSaga(Guid billingProcessId, Guid planId, Guid userId)
+    public UserBillingSaga(Guid jobId, Guid planId, Guid userId)
     {
         Id = Guid.NewGuid();
-        BillingProcessId = billingProcessId;
+        JobId = jobId;
         PlanId = planId;
         UserId = userId;
 

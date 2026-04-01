@@ -45,7 +45,8 @@ public class BillingProcessConfiguration : IEntityTypeConfiguration<BillingProce
         builder.Property(x => x.FinishedAt)
             .HasColumnType("datetime2");
 
-        builder.HasIndex(x => x.BillingDate).IsUnique();
+        //This is temporary removed to allow multiple billing processes for the same date during testing. In a production-based scenario, this should be re-enabled to ensure data integrity.
+        //builder.HasIndex(x => x.BillingDate).IsUnique();
         builder.HasIndex(x => x.Status);
     }
 }

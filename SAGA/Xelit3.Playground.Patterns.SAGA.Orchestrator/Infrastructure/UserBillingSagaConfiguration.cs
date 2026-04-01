@@ -12,7 +12,7 @@ public class UserBillingSagaConfiguration : IEntityTypeConfiguration<UserBilling
 
         builder.HasKey(x => x.Id);
 
-        builder.Property(x => x.BillingProcessId).IsRequired();
+        builder.Property(x => x.JobId).IsRequired();
         builder.Property(x => x.UserId).IsRequired();
 
         builder.Property(x => x.Status)
@@ -42,7 +42,7 @@ public class UserBillingSagaConfiguration : IEntityTypeConfiguration<UserBilling
             .HasColumnType("datetime2");
 
         // Índices clave
-        builder.HasIndex(x => x.BillingProcessId);
+        builder.HasIndex(x => x.JobId);
         builder.HasIndex(x => x.UserId);
         builder.HasIndex(x => x.Status);
     }
