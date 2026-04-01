@@ -27,7 +27,7 @@ public class BillingJob
         var processEntity = new BillingProcess();
         await _billingDbContext.BillingProcesses.AddAsync(processEntity);
 
-        var request = new BillingJobExecutionRequestEvent(Guid.NewGuid(), DateTime.Now.Day);
+        var request = new BillingPlansRequestedEvent(Guid.NewGuid(), DateTime.Now.Day);
         
         await _bus.SendAsync(request);
         await _billingDbContext.SaveChangesAsync();

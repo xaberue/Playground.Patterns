@@ -2,17 +2,17 @@
 using Xelit3.Playground.Patterns.SAGA.Contracts;
 using Xelit3.Playground.Patterns.SAGA.Plans.Infrastructure;
 
-namespace Xelit3.Playground.Patterns.SAGA.Plans.Features.GetCurrentPlans;
+namespace Xelit3.Playground.Patterns.SAGA.Plans.Handlers;
 
-public class GetPlansHandler
+public class BillingPlansRequestedEventHandler
 {
 
-    private readonly ILogger<GetPlansHandler> _logger;
+    private readonly ILogger<BillingPlansRequestedEventHandler> _logger;
     private readonly PlanRepository _planRepository;
     private readonly IMessageBus _bus;
 
 
-    public GetPlansHandler(ILogger<GetPlansHandler> logger, PlanRepository planRepository, IMessageBus bus)
+    public BillingPlansRequestedEventHandler(ILogger<BillingPlansRequestedEventHandler> logger, PlanRepository planRepository, IMessageBus bus)
     {
         _logger = logger;
         _planRepository = planRepository;
@@ -20,7 +20,7 @@ public class GetPlansHandler
     }
 
 
-    public async Task HandleAsync(BillingJobExecutionRequestEvent request)
+    public async Task HandleAsync(BillingPlansRequestedEvent request)
     {
         _logger.LogInformation("Received BillingJobExecutionRequestEvent for day {Day}", request.Day);
         

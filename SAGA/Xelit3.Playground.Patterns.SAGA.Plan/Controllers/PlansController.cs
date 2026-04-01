@@ -2,17 +2,17 @@ using Microsoft.AspNetCore.Mvc;
 using Xelit3.Playground.Patterns.SAGA.Plans.Infrastructure;
 using Xelit3.Playground.Patterns.SAGA.Plans.Models;
 
-namespace Xelit3.Playground.Patterns.SAGA.Plans.Features.GetCurrentPlans;
+namespace Xelit3.Playground.Patterns.SAGA.Plans.Controllers;
 
 [ApiController]
 [Route("plans")]
-public class GetPlans : ControllerBase
+public class PlansController : ControllerBase
 {
 
     private readonly PlanRepository _planRepository;
 
 
-    public GetPlans(PlanRepository planRepository)
+    public PlansController(PlanRepository planRepository)
     {
         _planRepository = planRepository;
     }
