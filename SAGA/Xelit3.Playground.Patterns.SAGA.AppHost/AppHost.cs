@@ -11,9 +11,13 @@ var rabbitmq = builder.AddRabbitMQ("rabbitmq")
 
 var sqlDb = sqlServer.AddDatabase("sqldb");
 
-builder.AddProject<Projects.Xelit3_Playground_Patterns_SAGA_Discounts>("discounts-api");
+builder.AddProject<Projects.Xelit3_Playground_Patterns_SAGA_Discounts>("discounts-api")
+    .WithReference(rabbitmq)
+    .WaitFor(rabbitmq);
 
-builder.AddProject<Projects.Xelit3_Playground_Patterns_SAGA_Payments>("payments-api");
+builder.AddProject<Projects.Xelit3_Playground_Patterns_SAGA_Payments>("payments-api")
+    .WithReference(rabbitmq)
+    .WaitFor(rabbitmq);
 
 builder.AddProject<Projects.Xelit3_Playground_Patterns_SAGA_Plans>("plans-api")
     .WithReference(rabbitmq)
