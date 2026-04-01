@@ -1,20 +1,27 @@
+using Wolverine;
+using Wolverine.RabbitMQ;
+using Xelit3.Playground.Patterns.SAGA.Contracts;
 using Xelit3.Playground.Patterns.SAGA.ServiceDefaults;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 
-// Add services to the container.
+builder.Host.UseWolverine(opts =>
+{
+    opts.UseRabbitMq(new Uri(builder.Configuration.GetConnectionString("rabbitmq")!)).AutoProvision();
+
+    opts.ListenToRabbitQueue("billingjob-discount-requested-queue");
+    opts.PublishMessage<DiscountReadyForBillingEvent>().ToRabbitExchange("billingjob-discount-ready-queue");
+});
 
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
 app.MapDefaultEndpoints();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
