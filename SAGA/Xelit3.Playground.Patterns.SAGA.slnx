@@ -1,12 +1,16 @@
 <Solution>
-  <Folder Name="/Solution Items/">
+  <Folder Name="/1. Aspire/">
+    <Project Path="Xelit3.Playground.Patterns.SAGA.AppHost/Xelit3.Playground.Patterns.SAGA.AppHost.csproj" />
+    <Project Path="Xelit3.Playground.Patterns.SAGA.ServiceDefaults/Xelit3.Playground.Patterns.SAGA.ServiceDefaults.csproj" />
+  </Folder>
+  <Folder Name="/2. Services/">
+    <Project Path="Xelit3.Playground.Patterns.SAGA.Contracts/Xelit3.Playground.Patterns.SAGA.Contracts.csproj" Id="dac116b0-5e84-4a9d-8fce-3664c0b9a92e" />
+    <Project Path="Xelit3.Playground.Patterns.SAGA.Discount/Xelit3.Playground.Patterns.SAGA.Discounts.csproj" />
+    <Project Path="Xelit3.Playground.Patterns.SAGA.Orchestrator/Xelit3.Playground.Patterns.SAGA.Orchestrator.csproj" />
+    <Project Path="Xelit3.Playground.Patterns.SAGA.Payment/Xelit3.Playground.Patterns.SAGA.Payments.csproj" />
+    <Project Path="Xelit3.Playground.Patterns.SAGA.Plan/Xelit3.Playground.Patterns.SAGA.Plans.csproj" />
+  </Folder>
+  <Folder Name="/3. Others/">
     <File Path="TEST_SQL_Script.sql" />
   </Folder>
-  <Project Path="Xelit3.Playground.Patterns.SAGA.AppHost/Xelit3.Playground.Patterns.SAGA.AppHost.csproj" />
-  <Project Path="Xelit3.Playground.Patterns.SAGA.Contracts/Xelit3.Playground.Patterns.SAGA.Contracts.csproj" Id="dac116b0-5e84-4a9d-8fce-3664c0b9a92e" />
-  <Project Path="Xelit3.Playground.Patterns.SAGA.Discount/Xelit3.Playground.Patterns.SAGA.Discounts.csproj" />
-  <Project Path="Xelit3.Playground.Patterns.SAGA.Orchestrator/Xelit3.Playground.Patterns.SAGA.Orchestrator.csproj" />
-  <Project Path="Xelit3.Playground.Patterns.SAGA.Payment/Xelit3.Playground.Patterns.SAGA.Payments.csproj" />
-  <Project Path="Xelit3.Playground.Patterns.SAGA.Plan/Xelit3.Playground.Patterns.SAGA.Plans.csproj" />
-  <Project Path="Xelit3.Playground.Patterns.SAGA.ServiceDefaults/Xelit3.Playground.Patterns.SAGA.ServiceDefaults.csproj" />
 </Solution>
