@@ -13,7 +13,7 @@ builder.Host.UseWolverine(opts =>
 
     opts.ListenToRabbitQueue("billingjob-payment-requested-queue");
 
-    opts.PublishMessage<PaymentRequestedForBillingEvent>().ToRabbitQueue("billingjob-payment-result-ready-queue");
+    opts.PublishMessage<PaymentResultReadyForBillingEvent>().ToRabbitQueue("billingjob-payment-result-ready-queue");
 });
 
 builder.Services.AddControllers();

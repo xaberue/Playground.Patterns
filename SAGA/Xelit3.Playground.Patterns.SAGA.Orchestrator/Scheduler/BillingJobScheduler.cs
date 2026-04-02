@@ -21,8 +21,8 @@ public class BillingJobScheduler : IHostedService
         _recurringJobManager.AddOrUpdate<BillingJob>(
             "billing-job",
             job => job.ExecuteAsync(CancellationToken.None),
-            Cron.MinuteInterval(1)
-        //Cron.Daily(1)
+            //Cron.MinuteInterval(1)
+            Cron.Daily(1)
         );
 
         return Task.CompletedTask;

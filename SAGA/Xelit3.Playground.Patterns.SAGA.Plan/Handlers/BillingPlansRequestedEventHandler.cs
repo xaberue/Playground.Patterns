@@ -26,10 +26,15 @@ public class BillingPlansRequestedEventHandler
 
         var plans = _planRepository.GetAll(request.Day);
 
-        foreach (var plan in plans)
-        {
-            _logger.LogInformation("Publishing PlanReadyForBillingEvent for plan {PlanId} on day {Day}", plan.Id, request.Day);
-            await _bus.PublishAsync(new PlanReadyForBillingEvent(request.JobId, Guid.NewGuid(), plan.Id, plan.UserId));
-        }
+        //foreach (var plan in plans)
+        //{
+        //    _logger.LogInformation("Publishing PlanReadyForBillingEvent for plan {PlanId} on day {Day}", plan.Id, request.Day);
+        //    await _bus.PublishAsync(new PlanReadyForBillingEvent(request.JobId, Guid.NewGuid(), plan.Id, plan.UserId));
+        //}
+
+        var plan = plans.First();
+
+        _logger.LogInformation("Publishing PlanReadyForBillingEvent for plan {PlanId} on day {Day}", plan.Id, request.Day);
+        await _bus.PublishAsync(new PlanReadyForBillingEvent(request.JobId, Guid.NewGuid(), plan.Id, plan.UserId));
     }
 }

@@ -4,7 +4,7 @@ var sqlServer = builder.AddSqlServer("sqlserver", port: 65380)
     .WithLifetime(ContainerLifetime.Persistent)
     .WithDataVolume();
 
-var rabbitmq = builder.AddRabbitMQ("rabbitmq")
+var rabbitmq = builder.AddRabbitMQ("rabbitmq", port: 65390)
     .WithLifetime(ContainerLifetime.Persistent)
     .WithDataVolume(isReadOnly: false)
     .WithManagementPlugin();

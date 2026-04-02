@@ -22,7 +22,10 @@ public class PaymentCalculationRequestedForBillingEventHandler
         _logger.LogInformation("Received PaymentCalculationRequestedForBillingEvent: {PaymentCalculationRequestedForBillingEvent}", request);
 
         //Logic to calculate the payment based on the plan and discount
-        var paymentReadyRequest = new PaymentCalculationReadyForBillingEvent(request.JobId, request.CorrelationId, request.PlanId, request.UserId, request.Discount, 100);
+        var amount = 100 - request.Discount; // This is just a placeholder. You would replace this with your actual calculation logic.
+        //
+        var paymentReadyRequest = new PaymentCalculationReadyForBillingEvent(request.JobId, request.CorrelationId, request.PlanId, request.UserId, request.Discount, amount);
+        
 
         await _bus.SendAsync(paymentReadyRequest);
     }

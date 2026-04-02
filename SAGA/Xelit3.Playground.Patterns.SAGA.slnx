@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="TEST_SQL_Script.sql" />
+  </Folder>
   <Project Path="Xelit3.Playground.Patterns.SAGA.AppHost/Xelit3.Playground.Patterns.SAGA.AppHost.csproj" />
   <Project Path="Xelit3.Playground.Patterns.SAGA.Contracts/Xelit3.Playground.Patterns.SAGA.Contracts.csproj" Id="dac116b0-5e84-4a9d-8fce-3664c0b9a92e" />
   <Project Path="Xelit3.Playground.Patterns.SAGA.Discount/Xelit3.Playground.Patterns.SAGA.Discounts.csproj" />

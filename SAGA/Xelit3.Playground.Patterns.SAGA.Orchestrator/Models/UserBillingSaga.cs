@@ -65,7 +65,7 @@ public class UserBillingSaga
 
     public void MarkPaymentProcessed(string transactionId, bool successful, int resultCode)
     {
-        if (Status != UserBillingSagaStatus.DiscountCalculated)
+        if (Status != UserBillingSagaStatus.AmountCalculated)
             throw new InvalidOperationException("Invalid state transition.");
 
         PaymentTransactionId = transactionId;
