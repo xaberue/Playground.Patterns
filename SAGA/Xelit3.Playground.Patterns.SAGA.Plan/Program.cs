@@ -14,9 +14,11 @@ builder.Host.UseWolverine(opts =>
 
     opts.ListenToRabbitQueue("billingjob-plans-requested-queue");
     opts.ListenToRabbitQueue("billingjob-plan-amount-calculation-requested-queue");
+    opts.ListenToRabbitQueue("billingjob-plan-update-requested-queue");
 
     opts.PublishMessage<PlanReadyForBillingEvent>().ToRabbitQueue("billingjob-plan-ready-queue");
     opts.PublishMessage<PaymentCalculationReadyForBillingEvent>().ToRabbitQueue("billingjob-payment-calculation-ready-queue");
+    opts.PublishMessage<PlanUpdateReadyForBillingEvent>().ToRabbitQueue("billingjob-plan-update-ready-queue");
 });
 
 builder.Services.AddControllers();

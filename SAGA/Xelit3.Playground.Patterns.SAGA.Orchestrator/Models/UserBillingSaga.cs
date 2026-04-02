@@ -1,4 +1,5 @@
-﻿using Xelit3.Playground.Patterns.SAGA.Orchestrator.Enums;
+﻿using Xelit3.Playground.Patterns.SAGA.Contracts;
+using Xelit3.Playground.Patterns.SAGA.Orchestrator.Enums;
 
 namespace Xelit3.Playground.Patterns.SAGA.Orchestrator.Models;
 
@@ -20,6 +21,7 @@ public class UserBillingSaga
     public string? PaymentTransactionId { get; private set; }
     public bool? PaymentSuccessful { get; private set; }
     public int? PaymentResultCode { get; private set; }
+    public PlanStatus? PlanStatus { get; private set; }
 
     public DateTime CreatedAt { get; private set; }
     public DateTime UpdatedAt { get; private set; }
@@ -73,11 +75,12 @@ public class UserBillingSaga
         Touch();
     }
 
-    public void MarkPlanUpdated()
+    public void MarkPlanUpdated(PlanStatus planStatus)
     {
         if (Status != UserBillingSagaStatus.PaymentProcessed)
             throw new InvalidOperationException("Invalid state transition.");
 
+        PlanStatus = planStatus;
         Status = UserBillingSagaStatus.PlanUpdated;
         Touch();
     }
