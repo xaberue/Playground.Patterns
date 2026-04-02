@@ -8,8 +8,8 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.5" />
-		<PackageReference Include="WolverineFx" Version="5.22.0" />
-		<PackageReference Include="WolverineFx.RabbitMQ" Version="5.22.0" />
+		<PackageReference Include="WolverineFx" Version="5.27.0" />
+		<PackageReference Include="WolverineFx.RabbitMQ" Version="5.27.0" />
 	</ItemGroup>
 
 	<ItemGroup>

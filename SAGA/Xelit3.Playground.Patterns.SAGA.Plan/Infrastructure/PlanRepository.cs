@@ -5,14 +5,14 @@ namespace Xelit3.Playground.Patterns.SAGA.Plans.Infrastructure;
 public class PlanRepository
 {
 
-    private readonly List<Plan> _data = new List<Plan>();
+    private readonly List<Plan> _data = new();
 
 
     public PlanRepository()
     {
-        for (int i = 0; i < 30; i++)
+        for (var i = 0; i < 30; i++)
         {
-            for (int j = 0; j < 20; j++)
+            for (var j = 0; j < 20; j++)
             {
                 _data.Add(new Plan(i));
             }

@@ -3,7 +3,7 @@ using Xelit3.Playground.Patterns.SAGA.Contracts;
 using Xelit3.Playground.Patterns.SAGA.Orchestrator.Infrastructure;
 using Xelit3.Playground.Patterns.SAGA.Orchestrator.Models;
 
-namespace Xelit3.Playground.Patterns.SAGA.Plans.Features.GetCurrentPlans;
+namespace Xelit3.Playground.Patterns.SAGA.Orchestrator.Handlers;
 
 public class PlanReadyForBillingHandler
 {

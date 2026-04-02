@@ -1,7 +1,7 @@
 ﻿using Wolverine;
 using Xelit3.Playground.Patterns.SAGA.Contracts;
 
-namespace Xelit3.Playground.Patterns.SAGA.Discounts.Features;
+namespace Xelit3.Playground.Patterns.SAGA.Discounts.Handlers;
 
 public class DiscountRequestedForBillingEventHandler
 {

@@ -12,7 +12,7 @@ builder.Host.UseWolverine(opts =>
     opts.UseRabbitMq(new Uri(builder.Configuration.GetConnectionString("rabbitmq")!)).AutoProvision();
 
     opts.ListenToRabbitQueue("billingjob-payment-requested-queue");
-    
+
     opts.PublishMessage<PaymentRequestedForBillingEvent>().ToRabbitQueue("billingjob-payment-result-ready-queue");
 });
 

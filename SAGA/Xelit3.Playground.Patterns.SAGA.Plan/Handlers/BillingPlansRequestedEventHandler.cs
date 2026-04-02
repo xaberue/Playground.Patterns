@@ -23,7 +23,7 @@ public class BillingPlansRequestedEventHandler
     public async Task HandleAsync(BillingPlansRequestedEvent request)
     {
         _logger.LogInformation("Received BillingJobExecutionRequestEvent for day {Day}", request.Day);
-        
+
         var plans = _planRepository.GetAll(request.Day);
 
         foreach (var plan in plans)

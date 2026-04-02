@@ -22,7 +22,7 @@ public class BillingJobScheduler : IHostedService
             "billing-job",
             job => job.ExecuteAsync(CancellationToken.None),
             Cron.MinuteInterval(1)
-            //Cron.Daily(1)
+        //Cron.Daily(1)
         );
 
         return Task.CompletedTask;

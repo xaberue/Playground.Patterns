@@ -1,7 +1,7 @@
 ﻿using Wolverine;
 using Xelit3.Playground.Patterns.SAGA.Contracts;
 
-namespace Xelit3.Playground.Patterns.SAGA.Payments.Features.GetCurrentPlans;
+namespace Xelit3.Playground.Patterns.SAGA.Payments.Handlers;
 
 public class PaymentRequestedForBillingEventHandler
 {

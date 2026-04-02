@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Wolverine;
+﻿using Wolverine;
 using Xelit3.Playground.Patterns.SAGA.Contracts;
 using Xelit3.Playground.Patterns.SAGA.Orchestrator.Infrastructure;
 using Xelit3.Playground.Patterns.SAGA.Orchestrator.Models;
@@ -28,7 +27,7 @@ public class BillingJob
         await _billingDbContext.BillingProcesses.AddAsync(processEntity);
 
         var request = new BillingPlansRequestedEvent(Guid.NewGuid(), DateTime.Now.Day);
-        
+
         await _bus.SendAsync(request);
         await _billingDbContext.SaveChangesAsync();
     }
