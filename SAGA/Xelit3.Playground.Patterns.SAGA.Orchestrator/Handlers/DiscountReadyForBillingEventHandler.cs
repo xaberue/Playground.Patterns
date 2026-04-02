@@ -27,7 +27,7 @@ public class DiscountReadyForBillingEventHandler
         var entity = _billingDbContext.UserBillingSagas.FirstOrDefault(x => x.JobId == request.JobId && x.UserId == request.UserId && x.PlanId == request.PlanId);
         entity?.MarkDiscountCalculated(request.Discount);
 
-        var paymentRequest = new PaymentCalculationRequestedForBillingEvent(request.JobId, request.CorrelationId, request.PlanId, request.UserId, request.Discount);
+        var paymentRequest = new AmountCalculationRequestedForBillingEvent(request.JobId, request.CorrelationId, request.PlanId, request.UserId, request.Discount);
 
         await _bus.SendAsync(paymentRequest);
 

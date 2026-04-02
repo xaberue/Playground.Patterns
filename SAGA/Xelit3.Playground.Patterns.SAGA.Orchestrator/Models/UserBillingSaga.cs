@@ -16,6 +16,7 @@ public class UserBillingSaga
     public string? LastError { get; private set; }
 
     public decimal? DiscountAmount { get; private set; }
+    public decimal? PaymentAmount { get; private set; }
     public string? PaymentTransactionId { get; private set; }
 
     public DateTime CreatedAt { get; private set; }
@@ -45,6 +46,16 @@ public class UserBillingSaga
 
         DiscountAmount = discount;
         Status = UserBillingSagaStatus.DiscountCalculated;
+        Touch();
+    }
+
+    public void MarkAmountCalculated(decimal amount)
+    {
+        if (Status != UserBillingSagaStatus.DiscountCalculated)
+            throw new InvalidOperationException("Invalid state transition.");
+
+        PaymentAmount = amount;
+        Status = UserBillingSagaStatus.AmountCalculated;
         Touch();
     }
 

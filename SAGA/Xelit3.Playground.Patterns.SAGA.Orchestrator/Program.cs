@@ -19,10 +19,12 @@ builder.Host.UseWolverine(opts =>
 
     opts.PublishMessage<BillingPlansRequestedEvent>().ToRabbitQueue("billingjob-plans-requested-queue");
     opts.PublishMessage<DiscountRequestedForBillingEvent>().ToRabbitQueue("billingjob-discount-requested-queue");
-    opts.PublishMessage<PaymentCalculationRequestedForBillingEvent>().ToRabbitQueue("billingjob-payment-calculation-requested-queue");
+    opts.PublishMessage<AmountCalculationRequestedForBillingEvent>().ToRabbitQueue("billingjob-amount-calculation-requested-queue");
+    opts.PublishMessage<PaymentRequestedForBillingEvent>().ToRabbitQueue("billingjob-payment-requested-queue");
 
     opts.ListenToRabbitQueue("billingjob-plan-ready-queue");
     opts.ListenToRabbitQueue("billingjob-discount-ready-queue");
+    opts.ListenToRabbitQueue("billingjob-payment-calculation-ready-queue");
 });
 
 builder.Services.AddOpenApi();

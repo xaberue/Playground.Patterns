@@ -4,8 +4,9 @@ public enum UserBillingSagaStatus
 {
     Pending = 0,
     DiscountCalculated = 1,
-    PaymentProcessed = 2,
-    PlanUpdated = 3,
-    Completed = 4,
-    Failed = 5
+    AmountCalculated = 2,
+    PaymentProcessed = 3,
+    PlanUpdated = 4,
+    Completed = 5,
+    Failed = 6
 }

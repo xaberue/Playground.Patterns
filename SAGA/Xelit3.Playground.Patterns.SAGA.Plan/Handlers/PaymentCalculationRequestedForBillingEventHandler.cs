@@ -18,7 +18,7 @@ public class PaymentCalculationRequestedForBillingEventHandler
     }
 
 
-    public async Task HandleAsync(PaymentCalculationRequestedForBillingEvent request)
+    public async Task HandleAsync(AmountCalculationRequestedForBillingEvent request)
     {
         _logger.LogInformation("Received PaymentCalculationRequestedForBillingEvent: {PaymentCalculationRequestedForBillingEvent}", request);
 
