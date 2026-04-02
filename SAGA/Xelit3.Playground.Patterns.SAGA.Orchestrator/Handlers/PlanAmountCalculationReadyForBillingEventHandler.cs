@@ -4,15 +4,15 @@ using Xelit3.Playground.Patterns.SAGA.Orchestrator.Infrastructure;
 
 namespace Xelit3.Playground.Patterns.SAGA.Orchestrator.Handlers;
 
-public class PaymentCalculationReadyForBillingEventHandler
+public class PlanAmountCalculationReadyForBillingEventHandler
 {
 
-    private readonly ILogger<PaymentCalculationReadyForBillingEventHandler> _logger;
+    private readonly ILogger<PlanAmountCalculationReadyForBillingEventHandler> _logger;
     private readonly BillingDbContext _billingDbContext;
     private readonly IMessageBus _bus;
 
 
-    public PaymentCalculationReadyForBillingEventHandler(ILogger<PaymentCalculationReadyForBillingEventHandler> logger, BillingDbContext billingDbContext, IMessageBus bus)
+    public PlanAmountCalculationReadyForBillingEventHandler(ILogger<PlanAmountCalculationReadyForBillingEventHandler> logger, BillingDbContext billingDbContext, IMessageBus bus)
     {
         _logger = logger;
         _billingDbContext = billingDbContext;
@@ -20,7 +20,7 @@ public class PaymentCalculationReadyForBillingEventHandler
     }
 
 
-    public async Task HandleAsync(PaymentCalculationReadyForBillingEvent request)
+    public async Task HandleAsync(PlanAmountCalculationReadyForBillingEvent request)
     {
         _logger.LogInformation("Received PaymentCalculationReadyForBillingEvent: {Request}", request);
 

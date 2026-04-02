@@ -19,14 +19,14 @@ builder.Host.UseWolverine(opts =>
     
     opts.PublishMessage<BillingPlansRequestedEvent>().ToRabbitQueue("billingjob-plans-requested-queue");
     opts.PublishMessage<DiscountRequestedForBillingEvent>().ToRabbitQueue("billingjob-discount-requested-queue");
-    opts.PublishMessage<AmountCalculationRequestedForBillingEvent>().ToRabbitQueue("billingjob-plan-amount-calculation-requested-queue");
+    opts.PublishMessage<PlanAmountCalculationRequestedForBillingEvent>().ToRabbitQueue("billingjob-plan-amount-calculation-requested-queue");
     opts.PublishMessage<PaymentRequestedForBillingEvent>().ToRabbitQueue("billingjob-payment-requested-queue");
     opts.PublishMessage<PlanUpdateRequestedForBillingEvent>().ToRabbitQueue("billingjob-plan-update-requested-queue");
     opts.PublishMessage<PlanCompletedForBillingEvent>().ToLocalQueue("billingjob-plan-completed-queue");
 
     opts.ListenToRabbitQueue("billingjob-plan-ready-queue");
     opts.ListenToRabbitQueue("billingjob-discount-ready-queue");
-    opts.ListenToRabbitQueue("billingjob-payment-calculation-ready-queue");
+    opts.ListenToRabbitQueue("billingjob-plan-amount-calculation-ready-queue");
     opts.ListenToRabbitQueue("billingjob-payment-result-ready-queue");
     opts.ListenToRabbitQueue("billingjob-plan-update-ready-queue");
 });
