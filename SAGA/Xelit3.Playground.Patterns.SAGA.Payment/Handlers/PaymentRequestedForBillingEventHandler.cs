@@ -25,8 +25,9 @@ public class PaymentRequestedForBillingEventHandler
         var randomNumber = new Random().Next(1, 99);
         var paymentSuccessful = randomNumber < 90;
         var errorCode = randomNumber > 90 ? 500 + randomNumber : 0;
+        var transactionId = Guid.NewGuid();
         //
-        var paymentResultEvent = new PaymentResultReadyForBillingEvent(request.JobId, request.CorrelationId, request.PlanId, request.UserId, paymentSuccessful, errorCode);
+        var paymentResultEvent = new PaymentResultReadyForBillingEvent(request.JobId, request.CorrelationId, request.PlanId, request.UserId, transactionId, paymentSuccessful, errorCode);
 
         await _bus.SendAsync(paymentResultEvent);
     }

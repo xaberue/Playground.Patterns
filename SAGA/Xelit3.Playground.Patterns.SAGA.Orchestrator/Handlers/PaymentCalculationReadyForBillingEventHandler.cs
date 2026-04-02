@@ -22,6 +22,8 @@ public class PaymentCalculationReadyForBillingEventHandler
 
     public async Task HandleAsync(PaymentCalculationReadyForBillingEvent request)
     {
+        _logger.LogInformation("Received PaymentCalculationReadyForBillingEvent: {Request}", request);
+
         var entity = _billingDbContext.UserBillingSagas.FirstOrDefault(x => x.JobId == request.JobId && x.UserId == request.UserId && x.PlanId == request.PlanId);
         entity?.MarkAmountCalculated(request.Amount);
 

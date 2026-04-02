@@ -18,6 +18,8 @@ public class UserBillingSaga
     public decimal? DiscountAmount { get; private set; }
     public decimal? PaymentAmount { get; private set; }
     public string? PaymentTransactionId { get; private set; }
+    public bool? PaymentSuccessful { get; private set; }
+    public int? PaymentResultCode { get; private set; }
 
     public DateTime CreatedAt { get; private set; }
     public DateTime UpdatedAt { get; private set; }
@@ -59,12 +61,14 @@ public class UserBillingSaga
         Touch();
     }
 
-    public void MarkPaymentProcessed(string transactionId)
+    public void MarkPaymentProcessed(string transactionId, bool successful, int resultCode)
     {
         if (Status != UserBillingSagaStatus.DiscountCalculated)
             throw new InvalidOperationException("Invalid state transition.");
 
         PaymentTransactionId = transactionId;
+        PaymentSuccessful = successful;
+        PaymentResultCode = resultCode;
         Status = UserBillingSagaStatus.PaymentProcessed;
         Touch();
     }
